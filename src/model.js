@@ -58,4 +58,8 @@ const projects = {
     }
 }
 
+const project1 = new Project("Web Dev");
+const project2 = new Project("Cricket");
+projects.list.push(project1, project2);
+
 export { Todo, Project, projects };

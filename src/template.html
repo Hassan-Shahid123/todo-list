@@ -1,11 +1,107 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <header>
+      <p>DoIt!</p>
+    </header>
+
+    <div class="main-wrapper">
+      <aside class="sidebar">
+        <p>Projects</p>
+        <hr />
+        <div id="project-container" class="project-container"></div>
+      </aside>
+
+      <main>
+        <div class="project-top">
+          <p id="project-heading" class="project-heading"></p>
+          <button id="project-btn" class="project-btn">+ Add Todo</button>
+        </div>
+
+        <div class="todo-container" id="todo-container"></div>
+      </main>
+    </div>
+
+    <dialog id="todo-dialog">
+      <form id="todo-form">
+        <p>Add Todo</p>
+        <input
+          type="text"
+          class="todo-input"
+          placeholder="Title"
+          name="title"
+          required
+        />
+        <textarea
+          name="description"
+          id="todo-desc"
+          placeholder="Description (Optional)"
+        ></textarea>
+
+        <input type="date" class="todo-input" name="dueDate" required/>
+
+        <div class="todo-select-wrapper">
+          <label for="todo-select">Choose Priority Level</label>
+          <select name="priority" id="todo-select">
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+
+        <div class="notes-container">
+          <textarea name="notes" id="todo-notes" placeholder="Notes (Optional)"></textarea>
+        </div>
+
+        <div class="dialog-btns">
+          <button type="button" class="cancel-btn" id="cancel-btn">Cancel</button>
+          <button type="submit" class="submit-btn" id="submit-btn">Add</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="edit-dialog">
+      <form id="edit-form">
+        <p>Add Todo</p>
+        <input
+          type="text"
+          class="todo-input"
+          placeholder="Title"
+          name="title"
+          id="edit-title"
+          required
+        />
+        <textarea
+          name="description"
+          id="edit-desc"
+          placeholder="Description (Optional)"
+        ></textarea>
+
+        <input type="date" class="todo-input" name="dueDate" id="edit-date" required/>
+
+        <div class="todo-select-wrapper">
+          <label for="todo-select">Choose Priority Level</label>
+          <select name="priority" id="edit-priority">
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+
+        <div class="notes-container">
+          <textarea name="notes" id="edit-notes" placeholder="Notes (Optional)"></textarea>
+        </div>
+
+        <div class="dialog-btns">
+          <button type="button" class="cancel-btn" id="edit-cancel-btn">Cancel</button>
+          <button type="submit" class="submit-btn" id="edit-submit-btn">Edit</button>
+        </div>
+      </form>
+    </dialog>
+  </body>
 </html>
