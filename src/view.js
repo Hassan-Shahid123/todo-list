@@ -19,6 +19,7 @@ import { projects } from './model.js';
 
 function renderProjects() {
     const projectContainer = document.querySelector('#project-container');
+    projectContainer.replaceChildren();
     for (const project of projects.list) {
         const container = document.createElement('div');
         const pProject = document.createElement('p');
@@ -37,7 +38,7 @@ function renderProject(project) {
     const todos = project.todos;
     console.log(todos);
 
-    const todoColor = ['wheat', 'rgb(255, 145, 0)', 'rgb(255, 41, 41)'];
+    const todoColor = ['rgb(193, 187, 0)', 'rgb(255, 145, 0)', 'rgb(255, 41, 41)'];
 
     const projectBtn = document.querySelector('#project-btn');
     const projectHead = document.querySelector('#project-heading');

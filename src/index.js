@@ -60,7 +60,7 @@ editCancelBtn.addEventListener('click', (e) => {
     editDialog.close();
 })
 
-// for filling dialog
+// for filling dialog with todo data
 function fillDialog(todo) {
     const editForm = document.querySelector('#edit-form');
     editForm.reset();
@@ -92,7 +92,7 @@ function editTodo(todo) {
 }
 
 // for creating todos
-const projectBtn = document.querySelector('.project-btn');
+const todoButton = document.querySelector('.todo-btn');
 const submitBtn = document.querySelector('#submit-btn');
 const cancelBtn = document.querySelector('#cancel-btn');
 const dialog = document.querySelector('#todo-dialog');
@@ -102,7 +102,7 @@ const projectHead = document.querySelector('#project-heading');
 cancelBtn.addEventListener('click', () => {
     dialog.close();
 });
-projectBtn.addEventListener('click', () => {
+todoButton.addEventListener('click', () => {
     form.reset();
     dialog.showModal();
 });
@@ -133,5 +133,42 @@ form.addEventListener('submit', (e) => {
     renderProject(project);
     setEditListener();
 });
+
+
+// event listeners for adding projects
+const addProjectBtn = document.querySelector('#add-project-btn');
+const addProjectForm = document.querySelector('#add-project-form');
+const addProjCancelBtn = document.querySelector('#add-project-cancel-btn');
+
+addProjCancelBtn.addEventListener('click', () => {
+    addProjectForm.reset();
+    addProjectForm.style.display = 'none';
+    addProjectBtn.style.display = 'block';
+});
+
+addProjectForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!addProjectForm.checkValidity()) {
+        addProjectForm.reportValidity();
+        return;
+    }
+
+    const projectName = document.querySelector('#project-name-input').value;
+    const project = new Project(projectName);
+    projects.addProject(project);
+
+    addProjectForm.reset();
+    addProjectForm.style.display = 'none';
+    addProjectBtn.style.display = 'block';
+
+    renderProjects();
+});
+
+addProjectBtn.addEventListener('click', (e) => {
+    addProjectForm.style.display = 'block';
+    addProjectBtn.style.display = 'none'; 
+});
+
+
 
 renderProjects();

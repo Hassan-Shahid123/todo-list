@@ -84,8 +84,8 @@ header p {
     font-weight: bold;
 }
 
-.project-btn {
-    background-color: rgba(0, 0, 0, 0.5);
+.todo-btn {
+    background-color: rgba(0, 128, 0, 0.7);
     border: none;
     color: white;
     padding: 1rem;
@@ -95,7 +95,7 @@ header p {
     display: none;
 }
 
-.project-btn:hover {
+.todo-btn:hover {
   cursor: pointer;
   background-color: rgba(0, 128, 0, 0.5);
   color: white;
@@ -210,3 +210,70 @@ form p {
 .todo-select-wrapper select {
   height: 1.7rem;
 }
+
+.add-project-form {
+  display: none;
+}
+
+.add-project-btn {
+  border: 2px solid green;
+  color: green;
+  padding: 0.5rem 0.8rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: white;
+  border-radius: 0.5rem;
+}
+
+.add-project-btn:hover {
+  border-color: white;
+  color: white;
+  background-color: rgba(0, 128, 0, 0.7);
+  cursor: pointer;
+}
+
+.add-project-container {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.add-project-form-btn-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  justify-content: flex-end;
+}
+
+.project-cancel-btn, .add-project-form-submit-btn {
+  padding: 0.3rem 0.5rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+}
+
+.project-cancel-btn {
+  border: 2px solid gray;
+  color: gray;
+}
+
+.project-cancel-btn:hover {
+  background-color: gray;
+  border-color: white;
+  color: white;
+}
+
+.add-project-form-submit-btn {
+  border: 2px solid red;
+  color: red;
+}
+
+.add-project-form-submit-btn:hover {
+  background-color: red;
+  border-color: white;
+  color: white;
+}
+
+

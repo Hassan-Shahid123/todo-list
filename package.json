@@ -18,9 +18,9 @@
   "license": "ISC",
   "type": "module",
   "bugs": {
-    "url": "https://github.com/Hassan-Shahid123/restaurant-page/issues"
+    "url": "https://github.com/Hassan-Shahid123/todo-list/issues"
   },
-  "homepage": "https://github.com/Hassan-Shahid123/restaurant-page#readme",
+  "homepage": "https://github.com/Hassan-Shahid123/todo-list#readme",
   "devDependencies": {
     "css-loader": "^7.1.4",
     "html-webpack-plugin": "^5.6.7",

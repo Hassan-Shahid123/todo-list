@@ -15,12 +15,36 @@
         <p>Projects</p>
         <hr />
         <div id="project-container" class="project-container"></div>
+
+        <div class="add-project-container">
+          <button id="add-project-btn" class="add-project-btn">
+            + Add New Project
+          </button>
+          <form action="" class="add-project-form" id="add-project-form">
+            <input
+              type="text"
+              name="projectName"
+              id="project-name-input"
+              placeholder="Project Name"
+              class="project-name-input"
+              maxlength="15"
+              minlength="3"
+              required
+            />
+            <div class="add-project-form-btn-container">
+              <button type="button" id="add-project-cancel-btn" class="project-cancel-btn">Cancel</button>
+              <button type="submit" class="add-project-form-submit-btn">
+                Add
+              </button>
+            </div>
+          </form>
+        </div>
       </aside>
 
       <main>
         <div class="project-top">
           <p id="project-heading" class="project-heading"></p>
-          <button id="project-btn" class="project-btn">+ Add Todo</button>
+          <button id="project-btn" class="todo-btn">+ Add Todo</button>
         </div>
 
         <div class="todo-container" id="todo-container"></div>
@@ -43,7 +67,7 @@
           placeholder="Description (Optional)"
         ></textarea>
 
-        <input type="date" class="todo-input" name="dueDate" required/>
+        <input type="date" class="todo-input" name="dueDate" required />
 
         <div class="todo-select-wrapper">
           <label for="todo-select">Choose Priority Level</label>
@@ -55,11 +79,17 @@
         </div>
 
         <div class="notes-container">
-          <textarea name="notes" id="todo-notes" placeholder="Notes (Optional)"></textarea>
+          <textarea
+            name="notes"
+            id="todo-notes"
+            placeholder="Notes (Optional)"
+          ></textarea>
         </div>
 
         <div class="dialog-btns">
-          <button type="button" class="cancel-btn" id="cancel-btn">Cancel</button>
+          <button type="button" class="cancel-btn" id="cancel-btn">
+            Cancel
+          </button>
           <button type="submit" class="submit-btn" id="submit-btn">Add</button>
         </div>
       </form>
@@ -82,7 +112,13 @@
           placeholder="Description (Optional)"
         ></textarea>
 
-        <input type="date" class="todo-input" name="dueDate" id="edit-date" required/>
+        <input
+          type="date"
+          class="todo-input"
+          name="dueDate"
+          id="edit-date"
+          required
+        />
 
         <div class="todo-select-wrapper">
           <label for="todo-select">Choose Priority Level</label>
@@ -94,12 +130,20 @@
         </div>
 
         <div class="notes-container">
-          <textarea name="notes" id="edit-notes" placeholder="Notes (Optional)"></textarea>
+          <textarea
+            name="notes"
+            id="edit-notes"
+            placeholder="Notes (Optional)"
+          ></textarea>
         </div>
 
         <div class="dialog-btns">
-          <button type="button" class="cancel-btn" id="edit-cancel-btn">Cancel</button>
-          <button type="submit" class="submit-btn" id="edit-submit-btn">Edit</button>
+          <button type="button" class="cancel-btn" id="edit-cancel-btn">
+            Cancel
+          </button>
+          <button type="submit" class="submit-btn" id="edit-submit-btn">
+            Edit
+          </button>
         </div>
       </form>
     </dialog>
