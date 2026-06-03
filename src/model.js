@@ -43,7 +43,7 @@ class Project {
         this.todos.push(todo);
     }
     removeTodo(todoId) {
-        this.todos.filter((todo) => todo.id !== todoId);
+        this.todos = this.todos.filter((todo) => todo.id !== todoId);
     }
 }
 
@@ -54,7 +54,7 @@ const projects = {
     },
 
     removeProject(id) {
-        this.list.filter((project) => project.id !== id);
+        this.list = this.list.filter((project) => project.id !== id);
     }
 }
 

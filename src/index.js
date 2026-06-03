@@ -10,28 +10,94 @@ const projectContainer = document.querySelector('#project-container');
 projectContainer.addEventListener('click', function (e) {
     const projectName = e.target.textContent;
     const project = projects.list.find(proj => proj.name === projectName);
-    console.log(project);
+    if (!project) {
+        return;
+    }
     currProjectId = project.id;
+    setProjDelListener();
+    renderProject(project);
+    openProject(project);
+});
+
+// helper for deleting projects
+function deleteProject(e) {
+    const projElem = e.target.closest('.project-item');
+    const proj = projects.list.find(proj => proj.id === projElem.dataset.id);
+    console.log(proj);
+    projects.removeProject(proj.id);
+    displayProjectList();
+}
+
+function setProjDelListener() {
+    const delBtnList = document.querySelectorAll('.proj-del-btn');
+    const delBtnArr = Array.from(delBtnList);
+
+    delBtnArr.forEach(btn => {
+        btn.addEventListener('click', deleteProject);
+    });
+}
+
+function openProject(project) {
     renderProject(project);
     setEditListener();
-});
+    setDeleteListener();
+    setCheckbox();
+}
+
+// helper for checking todos
+function checkHandler(e) {
+    const todoElem = e.target.closest('.todo-card');
+    const project = projects.list.find(proj => proj.id === currProjectId);
+    const todo = project.todos.find(todo => todo.id === todoElem.dataset.id);
+    if (todo.status === 'pending') {
+        todo.status = 'done';
+    }
+    else {
+        todo.status = 'pending';
+    }
+    openProject(project);
+}
+
+function setCheckbox() {
+    const checkboxList = document.querySelectorAll('.checkbox');
+    const checkboxArray = Array.from(checkboxList);
+
+    checkboxArray.forEach(checkbox => {
+        checkbox.addEventListener('change', checkHandler);
+    });
+}
 
 let editedTodo;
 const editDialog = document.querySelector('#edit-dialog');
 function setEditListener() {
-    const expandBtnList = document.querySelectorAll('.expand-btn');
-    const expandBtns = Array.from(expandBtnList);
+    const editBtnList = document.querySelectorAll('.edit-btn');
+    const editBtns = Array.from(editBtnList);
 
-    expandBtns.forEach(btn => {
+    editBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             const todoElem = e.target.closest('.todo-card');
             const project = projects.list.find(proj => proj.id === currProjectId);
             const todo = project.todos.find(todo => todo.id === todoElem.dataset.id);
             editedTodo = todo;
 
-            console.log('Here');
             fillDialog(todo);
             editDialog.showModal();
+        });
+    });
+}
+
+function setDeleteListener() {
+    const deleteBtnList = document.querySelectorAll('.delete-btn');
+    const deleteBtns = Array.from(deleteBtnList);
+    console.log(deleteBtns);
+    deleteBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const todoElem = e.target.closest('.todo-card');
+            const project = projects.list.find(proj => proj.id === currProjectId);
+            const todo = project.todos.find(todo => todo.id === todoElem.dataset.id);
+            project.removeTodo(todo.id);
+            console.log('working?');
+            openProject(project);
         });
     });
 }
@@ -51,8 +117,7 @@ editForm.addEventListener('submit', (e) => {
 
     const project = projects.list.find(proj => proj.id === currProjectId);
     console.log(project);
-    renderProject(project);
-    setEditListener();
+    openProject(project);
 })
 
 const editCancelBtn = document.querySelector('#edit-cancel-btn');
@@ -130,8 +195,7 @@ form.addEventListener('submit', (e) => {
         return;
     }
     project.addTodo(todo);
-    renderProject(project);
-    setEditListener();
+    openProject(project);
 });
 
 
@@ -161,14 +225,18 @@ addProjectForm.addEventListener('submit', (e) => {
     addProjectForm.style.display = 'none';
     addProjectBtn.style.display = 'block';
 
-    renderProjects();
+    displayProjectList();
 });
 
 addProjectBtn.addEventListener('click', (e) => {
     addProjectForm.style.display = 'block';
-    addProjectBtn.style.display = 'none'; 
+    addProjectBtn.style.display = 'none';
 });
 
 
+function displayProjectList() {
+    renderProjects();
+    setProjDelListener();
+}
 
-renderProjects();
+displayProjectList();
