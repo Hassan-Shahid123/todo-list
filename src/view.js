@@ -1,20 +1,3 @@
-// function renderHome(projects) {
-//     const body = document.querySelector('body');
-//     const section = document.createElement('section');
-//     for (project of projects) {
-//         const div = document.createElement('div');
-//         const pName = document.createElement('p');
-//         const numTodos = document.createElement('p');
-
-//         div.classList.add('project-card');
-//         pName.textContent = project.name;
-//         numTodos.textContent = project.todos.length;
-
-//         div.append(pName, numTodos);
-//         section.appendChild(div);
-//     }
-//     body.appendChild(section);
-// }
 import { projects } from './model.js';
 import trashIcon from '../icons/trash.svg';
 import penIcon from '../icons/pen.svg';
@@ -115,12 +98,6 @@ function addIcon(button, icon, iconClass) {
     img.className = iconClass;
     button.appendChild(img);
 }
-
-// function renderTodo(todo) {
-//     const main = document.querySelector('main');
-//     const todoContainer = document.createElement('div');
-
-// }
 
 function expandTodo(todoElem, todo) {
     if(todo.description) {
