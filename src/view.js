@@ -26,7 +26,6 @@ function renderProject(project) {
     todoContainer.innerHTML = "";
 
     const todos = project.todos;
-    console.log(todos);
 
     const todoColor = ['rgb(0, 167, 3)', 'rgb(255, 145, 0)', 'rgb(255, 41, 41)'];
 
@@ -40,7 +39,6 @@ function renderProject(project) {
 
     if(!todos) return;
     for (const todo of todos) {
-        console.log(todo);
         const todoItem = document.createElement('div');
         todoItem.dataset.id = todo.id;
 
@@ -83,7 +81,7 @@ function renderProject(project) {
 
         editBtn.style.backgroundColor = todoItem.style.backgroundColor;
         deleteBtn.style.backgroundColor = todoItem.style.backgroundColor;
-        console.log(todo.status);
+  
         if(todo.status === 'done') {
             todoItem.classList.add('crossed-out');
             checkbox.checked = true;
@@ -111,7 +109,6 @@ function expandTodo(todoElem, todo) {
         p.textContent = 'Notes: ' + todo.notes;
         todoElem.append(p);
     }
-    console.log(todoElem);
 }
 
 export { renderProjects, renderProject, expandTodo };

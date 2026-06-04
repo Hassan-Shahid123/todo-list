@@ -23,7 +23,7 @@ projectContainer.addEventListener('click', function (e) {
 function deleteProject(e) {
     const projElem = e.target.closest('.project-item');
     const proj = projects.list.find(proj => proj.id === projElem.dataset.id);
-    console.log(proj);
+
     projects.removeProject(proj.id);
     displayProjectList();
 }
@@ -89,7 +89,7 @@ function setEditListener() {
 function setDeleteListener() {
     const deleteBtnList = document.querySelectorAll('.delete-btn');
     const deleteBtns = Array.from(deleteBtnList);
-    console.log(deleteBtns);
+
     deleteBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             const todoElem = e.target.closest('.todo-card');
@@ -116,7 +116,6 @@ editForm.addEventListener('submit', (e) => {
     editTodo(editedTodo);
 
     const project = projects.list.find(proj => proj.id === currProjectId);
-    console.log(project);
     openProject(project);
 })
 
@@ -188,7 +187,6 @@ form.addEventListener('submit', (e) => {
     const todo = new Todo(formData.title, formData.description, formData.dueDate, formData.priority, formData.notes);
 
     const projectId = projectHead.dataset.id;
-    console.log(projectId);
     const project = projects.list.find(proj => proj.id === projectId);
     if (!project) {
         console.log('No project to add todo!');
